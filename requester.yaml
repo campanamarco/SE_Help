@@ -6,6 +6,7 @@ spec:
     request:
       search_as_roles:
       - elevate-linuxaccess
+      - elevate-rdpaccess
       - prod-access
   deny: {}
   options:
