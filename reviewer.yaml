@@ -9,6 +9,7 @@ spec:
       - elevate-linuxaccess
       - prod-access
       - base-level
+      - requester
   deny: {}
   options:
     cert_format: standard
