@@ -8,13 +8,15 @@ spec:
     db_labels:
       x: x
     kubernetes_labels:
-    - env: dev 
+      x: x
     node_labels:
-    - env: dev
-    kubernetes_resources:
-    - kind: pod
-      name: '*'
-      namespace: '*'
+    'env': 'dev'
+    logins:
+    - ubuntu
+    - ec2-user
+    # Windows logins a user is allowed to use for desktop sessions.
+    windows_desktop_logins: 
+    '{{internal.logins}}''
     request:
       roles:
       - prod-access
