@@ -11,15 +11,11 @@ spec:
     - ec2-user
     node_labels:
       'env': 'prod'
-    require_session_join:
-    - count: 1
-      filter: contains(user.roles, "auditor")
-      kinds:
-      - ssh
-      modes:
-      - moderator
-      name: Auditor oversight
-      on_leave: ""
+    windows_desktop_labels:
+      'env': 'prod'
+    windows_desktop_logins:
+    - Administrator
+    - svc-teleport
   deny: {}
   options:
     cert_format: standard
