@@ -1,6 +1,6 @@
 kind: role
 metadata:
-  name: baselevel
+  name: base-level
 spec:
   allow:
     app_labels:
@@ -43,4 +43,4 @@ spec:
       desktop: true
     require_session_mfa: true
     ssh_file_copy: true
-version: v4
+version: v5
