@@ -12,6 +12,7 @@ spec:
       name: Auditor oversight
       roles:
       - elevate-linuxaccess
+      - elevate-rdpaccess
       - contractor
       - requester
     kubernetes_groups:
@@ -36,18 +37,14 @@ spec:
       '*': '*'
     request:
       roles:
-      - admin
-      - aws-console-access
+      - prod-access
+      - elevate-rdpaccess
     rules:
     - resources:
       - event
       verbs:
       - list
       - read
-    windows_desktop_labels:
-      '*': '*'
-    windows_desktop_logins:
-    - '{{internal.windows_logins}}'
   deny: {}
   options:
     cert_format: standard
