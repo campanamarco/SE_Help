@@ -8,6 +8,16 @@ spec:
     windows_desktop_logins:
     - Administrator
     - svc-teleport
+    request:
+      roles:
+      - prod-access
+      - elevate-linuxaccess
+    rules:
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
   deny: {}
   options:
     cert_format: standard
@@ -17,7 +27,7 @@ spec:
     enhanced_recording:
     - command
     - network
-    forward_agent: false
+    forward_agent: true
     idp:
       saml:
         enabled: true
