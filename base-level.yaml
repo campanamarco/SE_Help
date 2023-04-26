@@ -20,7 +20,8 @@ spec:
     request:
       roles:
       - prod-access
-      - access
+      - elevate-linuxaccess
+      - elevate-rdpaccess
       suggested_reviewers:
       - dana.goldstein@taketwo.com
   deny: {}
