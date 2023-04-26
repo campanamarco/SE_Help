@@ -5,7 +5,7 @@ spec:
   allow:
     request:
       search_as_roles:
-      - access
+      - elevate-linuxaccess
       - prod-access
   deny: {}
   options:
