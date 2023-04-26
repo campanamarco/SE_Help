@@ -1,0 +1,44 @@
+kind: role
+metadata:
+  name: baselevel
+spec:
+  allow:
+    app_labels:
+      x: x
+    db_labels:
+      x: x
+    kubernetes_labels:
+    - env: dev 
+    node_labels:
+    - env: dev
+    kubernetes_resources:
+    - kind: pod
+      name: '*'
+      namespace: '*'
+    request:
+      roles:
+      - prod-access
+      - access
+      suggested_reviewers:
+      - dana.goldstein@taketwo.com
+  deny: {}
+  options:
+    cert_format: standard
+    create_host_user: false
+    desktop_clipboard: true
+    desktop_directory_sharing: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: false
+    idp:
+      saml:
+        enabled: true
+    max_session_ttl: 30h0m0s
+    pin_source_ip: false
+    port_forwarding: true
+    record_session:
+      desktop: true
+    require_session_mfa: true
+    ssh_file_copy: true
+version: v4
