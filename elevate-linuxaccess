@@ -1,0 +1,70 @@
+kind: role
+metadata:
+  description: Access cluster resources
+  name: elevate-linuxaccess
+spec:
+  allow:
+    join_sessions:
+    - kinds:
+      - ssh
+      modes:
+      - peer
+      name: Auditor oversight
+      roles:
+      - elevate-linuxaccess
+      - contractor
+      - requester
+    kubernetes_groups:
+    - '{{internal.kubernetes_groups}}'
+    - devs
+    - system:masters
+    kubernetes_labels:
+      '*': '*'
+      cluster type: eks
+      env: prod
+    kubernetes_resources:
+    - kind: pod
+      name: '*'
+      namespace: '*'
+    kubernetes_users:
+    - '{{internal.kubernetes_users}}'
+    logins:
+    - '{{internal.logins}}'
+    - ubuntu
+    - ec2-user
+    node_labels:
+      '*': '*'
+    request:
+      roles:
+      - admin
+      - aws-console-access
+    rules:
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
+    windows_desktop_labels:
+      '*': '*'
+    windows_desktop_logins:
+    - '{{internal.windows_logins}}'
+  deny: {}
+  options:
+    cert_format: standard
+    create_host_user: false
+    desktop_clipboard: true
+    desktop_directory_sharing: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: true
+    idp:
+      saml:
+        enabled: true
+    max_session_ttl: 30h0m0s
+    pin_source_ip: false
+    port_forwarding: true
+    record_session:
+      desktop: true
+    ssh_file_copy: true
+version: v5
